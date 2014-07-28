@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>JSF Employee Application</title>
+</h:head>
+<h:body>
+	<p:tabMenu activeIndex="1">
+		<p:menuitem value="Show All" outcome="welcome" icon="ui-icon-star">
+			<f:param name="i" value="0" />
+		</p:menuitem>
+		<p:menuitem value="Add New" outcome="add" icon="ui-icon-search">
+			<f:param name="i" value="1" />
+		</p:menuitem>
+	</p:tabMenu>
+
+	<!-- Main form now -->
+
+	<h:form>
+		<p:panel header="Add a new Employee">
+			<p:messages autoUpdate="true" />
+
+			<h:panelGrid id="grid" columns="4" cellpadding="5">
+				<h:outputLabel for="name" value="Name:" style="font-weight:bold" />
+				<p:inputText id="name" value="#{empBean.name}" required="true"
+					label="Name">
+					<f:validateLength minimum="3" maximum="40" />
+				</p:inputText>
+				<p:message for="name" />
+				<h:outputText value="#{empBean.name}" />
+
+				<h:outputLabel for="email" value="Email" style="font-weight:bold" />
+				<p:inputText id="email" value="#{empBean.email}"
+					validatorMessage="Incorrect email given">
+					<f:validateLength minimum="3" maximum="40" />
+				</p:inputText>
+				<p:message for="email" />
+				<h:outputText value="#{empBean.email}" />
+
+				<h:outputLabel for="age" value="Age:" style="font-weight:bold" />
+				<p:inputText id="age" value="#{empBean.age}"
+					label="Age">
+					<f:validateDoubleRange minimum="10" maximum="60" />
+				</p:inputText>
+				<p:message for="age" />
+				<h:outputText value="" />
+
+				<h:outputLabel for="desc" value="adress" style="font-weight:bold" />
+				<p:inputTextarea id="desc" value="#{empBean.adress}"
+					required="true" label="Description">
+					<f:validateLength minimum="3" maximum="100" />
+				</p:inputTextarea>
+				<p:message for="desc" />
+				<h:outputText value="#{empBean.adress}" />
+			</h:panelGrid>
+
+			<p:commandButton value="Submit" ajax="false" icon="ui-icon-check"
+				validateClient="true" action="#{empBean.submit}" style="margin-right:10px" />
+		</p:panel>
+		<h:outputText value="#{empBean.status}" />
+	</h:form>
+	
+	
+	
+</h:body>
+</html>

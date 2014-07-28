@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>JSF Employee Application</title>
+</h:head>
+<h:body>
+	<p:tabMenu activeIndex="0">
+		<p:menuitem value="Show All" outcome="welcome" icon="ui-icon-star">
+			<f:param name="i" value="0" />
+		</p:menuitem>
+		<p:menuitem value="Add New" outcome="add" icon="ui-icon-search">
+			<f:param name="i" value="1" />
+		</p:menuitem>
+	</p:tabMenu>
+	
+	<h:form id="form">
+		<p:growl sticky="false" id="msgs" showDetail="true"/>
+		
+		<!-- Code for deletion using context menu  -->
+		<p:contextMenu for="emps">
+	        <p:menuitem value="Delete" update="emps" icon="ui-icon-close" actionListener="#{empBean.deleteEmp}"/>
+    	</p:contextMenu>
+		<!-- Code for context menu finished  -->
+		
+		<p:dataTable id="emps" var="emp" value="#{empBean.esEmployeeEntities}" rowKey="#{emp.id}" 
+			selection="#{empBean.selectedRow}" selectionMode="single" editable="true" style="margin-bottom:20px">
+			
+			<p:ajax event="rowEdit" listener="#{empBean.onRowEdit}" update=":form:msgs" />
+       		<p:ajax event="rowEditCancel" listener="#{empBean.onRowCancel}" update=":form:msgs" />
+		
+			<p:column headerText="Id">
+				<h:outputText value="#{emp.id}" />
+			</p:column>
+			<p:column headerText="Name">
+				<p:cellEditor>
+	               <f:facet name="output"><h:outputText value="#{emp.name}" /></f:facet>
+	               <f:facet name="input">
+	               		<p:inputText id="name" value="#{emp.name}" required="true" style="width:100%">
+	               			<f:validateLength minimum="3" maximum="40" />
+	               		</p:inputText>
+	               </f:facet>
+	           </p:cellEditor>
+			</p:column>
+			<p:column headerText="Email">
+				<p:cellEditor>
+	               <f:facet name="output"><h:outputText value="#{emp.email}" /></f:facet>
+	               <f:facet name="input">
+	               		<p:inputText id="email" value="#{emp.email}" required="true" style="width:100%">
+	               			<f:validateLength minimum="3" maximum="40" />
+	               		</p:inputText>
+	               </f:facet>
+	           </p:cellEditor>
+			</p:column>
+			<p:column headerText="Age">
+				<p:cellEditor>
+	               <f:facet name="output"><h:outputText value="#{emp.age}" /></f:facet>
+	               <f:facet name="input">
+	               		<p:inputText id="age" value="#{emp.age}" required="true" style="width:100%">
+	               			
+	               		</p:inputText>
+	               </f:facet>
+	           </p:cellEditor>
+			</p:column>
+			<p:column headerText="Adress">
+				<p:cellEditor>
+	               <f:facet name="output"><h:outputText value="#{emp.adress}" /></f:facet>
+	               <f:facet name="input">
+	               		<p:inputTextarea id="desc" value="#{emp.adress}"
+							required="true" >
+							<f:validateLength minimum="3" maximum="100" />
+						</p:inputTextarea>
+	               </f:facet>
+	           </p:cellEditor>
+			</p:column>
+			<p:column style="width:32px">
+	           <p:rowEditor />
+	       </p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
