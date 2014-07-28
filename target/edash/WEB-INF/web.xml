@@ -9,7 +9,17 @@
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
 	</context-param>
-
+	
+	<context-param>
+		<param-name>com.sun.faces.writeStateAtFormEnd</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>javax.faces.FACELETS_BUFFER_SIZE</param-name>
+		<param-value>65535</param-value>
+	</context-param>
+	
 	<!-- Welcome page -->
 	<welcome-file-list>
 		<welcome-file>/welcome.xhtml</welcome-file>

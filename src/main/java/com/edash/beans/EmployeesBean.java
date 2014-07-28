@@ -25,6 +25,8 @@ public class EmployeesBean implements Serializable {
 
 	private List<EmployeeEntity> esEmployeeEntities = new ArrayList<EmployeeEntity>();
 	
+	private List<EmployeeEntity> filteredEmps;
+	
 	private EmployeeEntity selectedRow;
 	
 	private String name;
@@ -143,15 +145,19 @@ public class EmployeesBean implements Serializable {
 			msg = new FacesMessage("successfully deleted");
 		} else {
 			msg = new FacesMessage("deletion failed");
-		} 
-		try {
-			esEmployeeEntities.remove(selectedRow);
-		} catch(Exception e){
-			System.out.println("error------------------------------");
-			e.printStackTrace();
 		}
+		
+		esEmployeeEntities.remove(selectedRow);
 		this.selectedRow = null;
 		//this.esEmployeeEntities = null;
 		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+
+	public List<EmployeeEntity> getFilteredEmps() {
+		return filteredEmps;
+	}
+
+	public void setFilteredEmps(List<EmployeeEntity> filteredEmps) {
+		this.filteredEmps = filteredEmps;
 	}
 }
