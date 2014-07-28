@@ -162,6 +162,17 @@ public class EmployeesBean implements Serializable {
 		//this.esEmployeeEntities = null;
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
+	
+	public void deleteEmpByInstance(EmployeeEntity e) {
+		FacesMessage msg;
+		if (EmployeesClient.deleteEmployeeEntity(e.getId())) {
+			msg = new FacesMessage("succesfully deleted");
+		} else {
+			msg = new FacesMessage("deletion failed");
+		}
+		esEmployeeEntities.remove(e);
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
 
 	public List<EmployeeEntity> getFilteredEmps() {
 		return filteredEmps;

@@ -90,12 +90,12 @@
 			<p:column style="width:32px">
 	           <p:rowEditor />
 	        </p:column>
-	        <!-- <p:column>
+	        <p:column style="width:32px;">
 	        	<f:facet name="header">
 			         <h:outputText value="" />
 			    </f:facet>
-			    <p:commandButton actionListener="#{buttonView.buttonAction}" id="iconOnly" update="msgs" icon="ui-icon-disk" title="Delete" />
-	        </p:column> -->
+			    <p:commandButton actionListener="#{empBean.deleteEmpByInstance(emp)}" id="iconOnly" update=":form:msgs, :form:emps" icon="ui-icon-disk" title="Delete" />
+	        </p:column>
 		</p:dataTable>
 	</h:form>
 </h:body>
