@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -42,11 +43,20 @@ public class EmployeesBean implements Serializable {
 	
 
 	public EmployeesBean() {
-		esEmployeeEntities.addAll(EmployeesClient.getAllEmployeeEntities());
+		//esEmployeeEntities.addAll(EmployeesClient.getAllEmployeeEntities());
 	}
 	
 	public List<EmployeeEntity> getEsEmployeeEntities() {
 		return esEmployeeEntities;
+	}
+	
+	@PostConstruct
+	public void init() {
+		try {
+			esEmployeeEntities.addAll(EmployeesClient.getAllEmployeeEntities());
+		} finally {
+			
+		}
 	}
 
 	public void setEsEmployeeEntities(List<EmployeeEntity> esEmployeeEntities) {
