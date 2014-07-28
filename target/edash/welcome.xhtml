@@ -24,7 +24,7 @@
 		
 		<!-- Code for deletion using context menu  -->
 		<p:contextMenu for="emps">
-	        <p:menuitem value="Delete" update="emps" icon="ui-icon-close" actionListener="#{empBean.deleteEmp}"/>
+	        <p:menuitem value="Delete" update="emps, :form:msgs" icon="ui-icon-close" actionListener="#{empBean.deleteEmp}"/>
     	</p:contextMenu>
 		<!-- Code for context menu finished  -->
 		
@@ -89,7 +89,13 @@
 			</p:column>
 			<p:column style="width:32px">
 	           <p:rowEditor />
-	       </p:column>
+	        </p:column>
+	        <!-- <p:column>
+	        	<f:facet name="header">
+			         <h:outputText value="" />
+			    </f:facet>
+			    <p:commandButton actionListener="#{buttonView.buttonAction}" id="iconOnly" update="msgs" icon="ui-icon-disk" title="Delete" />
+	        </p:column> -->
 		</p:dataTable>
 	</h:form>
 </h:body>
