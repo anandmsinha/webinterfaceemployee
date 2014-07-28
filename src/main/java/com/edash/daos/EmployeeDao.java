@@ -119,4 +119,13 @@ public class EmployeeDao {
     	}
     	return true;
     }
+	
+	public static Object getCount() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Query q = pm.newQuery(EmployeeEntity.class);
+		q.setResult("count(id)");
+		Object x =  q.execute();
+		pm.close();
+		return x;
+	}
 }

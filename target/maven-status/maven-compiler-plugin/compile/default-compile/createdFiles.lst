@@ -1,5 +1,7 @@
 com/edash/entities/EmployeeEntity.class
+com/edash/models/EmployeeDataModel.class
 com/edash/daos/EmployeeDao.class
+com/edash/beans/EmployeeLazyBean.class
 com/edash/clients/EmployeesClient.class
 com/edash/services/EmployeeService.class
 com/edash/services/EmployeeService$1.class

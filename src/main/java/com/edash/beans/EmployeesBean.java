@@ -19,9 +19,6 @@ import com.edash.entities.EmployeeEntity;
 @RequestScoped
 public class EmployeesBean implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private List<EmployeeEntity> esEmployeeEntities = new ArrayList<EmployeeEntity>();
@@ -40,8 +37,6 @@ public class EmployeesBean implements Serializable {
 	
 	private String status;
 	
-	
-
 	public EmployeesBean() {
 		//esEmployeeEntities.addAll(EmployeesClient.getAllEmployeeEntities());
 	}

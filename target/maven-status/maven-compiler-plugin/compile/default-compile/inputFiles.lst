@@ -1,7 +1,9 @@
 /media/anand/4ABA8F4FBA8F368B/kepler/manager/src/main/java/com/edash/beans/SingleEmployeeBean.java
 /media/anand/4ABA8F4FBA8F368B/kepler/manager/src/main/java/com/edash/clients/EmployeesClient.java
+/media/anand/4ABA8F4FBA8F368B/kepler/manager/src/main/java/com/edash/beans/EmployeeLazyBean.java
 /media/anand/4ABA8F4FBA8F368B/kepler/manager/src/main/java/com/edash/daos/EmployeeDao.java
 /media/anand/4ABA8F4FBA8F368B/kepler/manager/src/main/java/com/edash/beans/ActiveMenuBean.java
+/media/anand/4ABA8F4FBA8F368B/kepler/manager/src/main/java/com/edash/models/EmployeeDataModel.java
 /media/anand/4ABA8F4FBA8F368B/kepler/manager/src/main/java/com/edash/services/EmployeeService.java
 /media/anand/4ABA8F4FBA8F368B/kepler/manager/src/main/java/com/edash/entities/EmployeeEntity.java
 /media/anand/4ABA8F4FBA8F368B/kepler/manager/src/main/java/com/edash/beans/EmployeesBean.java
